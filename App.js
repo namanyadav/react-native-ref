@@ -5,6 +5,7 @@ import GoalInput from "./components/GoalInput";
 
 export default function App() {
     const [courseGoals, setCourseGoals] = useState([]);
+    const [isAddMode, setIsAddMode] = useState(false);
 
     const addGoalHandler = goalTitle => {
         console.log(goalTitle);
@@ -22,7 +23,8 @@ export default function App() {
     }
   return (
     <View style={styles.screen}>
-        <GoalInput onAddGoal={addGoalHandler}/>
+        <Button title="Add new goal" onPress={setIsAddMode.bind(this, true)}/>
+        <GoalInput visible={isAddMode} onAddGoal={addGoalHandler}/>
       <FlatList
           data={courseGoals}
           renderItem={itemData => <GoalItem id={itemData.item.id} onDelete={removeGoalHandler} title={itemData.item.value}/>}
