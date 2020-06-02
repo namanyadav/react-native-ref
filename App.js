@@ -32,7 +32,7 @@ export default function App() {
         <GoalInput
             visible={isAddMode}
             onAddGoal={addGoalHandler}
-            onCacel={cancelAddGoalHandler}
+            onCancel={cancelAddGoalHandler}
         />
       <FlatList
           data={courseGoals}
